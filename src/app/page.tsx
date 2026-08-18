@@ -28,32 +28,44 @@ export default function HomePage() {
           className="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full bg-gold-500/15 blur-3xl"
         />
         <Container className="relative py-20 sm:py-28">
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold-400">
-              {hero.eyebrow}
-            </p>
-            <h1 className="mt-4 text-4xl leading-[1.05] sm:text-6xl">
-              {hero.title}
-            </h1>
-            <p className="mt-6 font-serif text-xl leading-relaxed text-paper/90 sm:text-2xl">
-              {hero.statement}
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <ButtonLink href="/donate">Donate</ButtonLink>
-              <ButtonLink href="/mission" variant="ghost">
-                See our mission
-              </ButtonLink>
-            </div>
-          </div>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold-400">
+            {hero.eyebrow}
+          </p>
+          <h1 className="mt-4 text-balance text-4xl leading-[1.05] sm:text-6xl lg:text-7xl">
+            {hero.title}
+          </h1>
 
-          <figure className="mt-16 border-l-2 border-gold-500 pl-5">
-            <blockquote className="font-serif text-lg italic text-paper/85">
-              “{hero.verse.text}”
-            </blockquote>
-            <figcaption className="mt-2 text-sm uppercase tracking-[0.16em] text-gold-400">
-              {hero.verse.reference}
-            </figcaption>
-          </figure>
+          {/* Two columns below the headline: the statement carries the left,
+              the verse anchors the right. Once photographs exist, the verse
+              moves back under the statement and the photo takes this column. */}
+          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.72fr)] lg:items-end lg:gap-16">
+            <div>
+              <p className="font-serif text-xl leading-relaxed text-paper/90 sm:text-2xl">
+                {hero.statement}
+              </p>
+              <div className="mt-10 flex flex-wrap gap-3">
+                <ButtonLink href="/donate">Donate</ButtonLink>
+                <ButtonLink href="/mission" variant="ghost">
+                  See our mission
+                </ButtonLink>
+              </div>
+            </div>
+
+            <figure className="rounded-2xl border border-paper/15 bg-forest-600/40 p-7 sm:p-8">
+              <span
+                aria-hidden
+                className="block font-serif text-6xl leading-[0.5] text-gold-500/60"
+              >
+                &ldquo;
+              </span>
+              <blockquote className="mt-5 font-serif text-lg italic leading-relaxed text-paper/90">
+                {hero.verse.text}
+              </blockquote>
+              <figcaption className="mt-4 text-xs uppercase tracking-[0.18em] text-gold-400">
+                {hero.verse.reference}
+              </figcaption>
+            </figure>
+          </div>
         </Container>
       </section>
 
